@@ -19,7 +19,7 @@
     }
 
     /* صندوق تسجيل الدخول */
-    .login-box {
+    .sign-box {
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(7px);
       border-radius: 20px;
@@ -39,7 +39,7 @@
     }
     
     /* الشعار */
-    .login-box img {
+    .sign-box img {
       margin-bottom: 15px;
       animation: pulse 2s infinite ease-in-out;
     }
@@ -51,7 +51,7 @@
     }
 
     /* العنوان */
-    .login-box h1 {
+    .sign-box h1 {
       margin-bottom: 25px;
       color: #108700;
       font-size: 26px;
@@ -84,6 +84,19 @@
       border: solid #81c784;
       background: rgba(255,255,255,0.3);
     }
+    /* ايقونة انشاء الحساب */
+    .icon i{
+      margin-bottom: 15px;
+      font-size: 40px;
+      color: #108700;
+      animation: pulse 2s infinite ease-out;
+    }
+        
+    /* حركة الايقونة */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2 ); }
+    }
 
     .input-container i {
       position: absolute;
@@ -113,7 +126,7 @@
     }
     
   /* button-a Effect */
-    .login-box button {
+    .sign-box button {
       width: 85%;
       padding: 12px;
       border: none;
@@ -127,22 +140,22 @@
       position: relative;
       overflow: hidden;
     }
-        .login-box a {
+     .sign-box a {
       color: #108700;
       text-decoration: none;
       transition: 0.3s;
     }
 
-    .login-box a:hover {
+    .sign-box a:hover {
       text-decoration: underline;
     }
 
-    .login-box button:hover {
+    .sign-box button:hover {
       background: linear-gradient(45deg, #81c784, #388e3c);
     }
 
     /* Ripple Effect */
-    .login-box button:active::after {
+    .sign-box button:active::after {
       content: "";
       position: absolute;
       top: 50%; left: 50%;
@@ -161,29 +174,38 @@
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <img src="Snake.png" alt="pharmacy" width="80" height="80">
-    <h1>🌿 Al-Manara Pharmacy</h1>
-    <form>
-      <div class="input-container">
-        <input type="text" placeholder="أسم المستخدم أو الايميل" required>
-        <i class="fa-solid fa-user"></i>
-      </div>
-
-      <div class="input-container">
-        <input type="password" placeholder="كلمة السر" required>
-        <i class="fa-solid fa-lock"></i>
-      </div>
-
-      <div class="options">
-        <label><input type="checkbox"> تذكرني</label>
-        <a href="#">نسيت كلمة السر؟</a>
-      </div>
-
-      <button type="submit">تسجيل دخول</button><br><br>
-      <button type="button" onclick="window.location.href='new-account.html'">إنشاء حساب جديد
-      </button>
-    </form>
+<div class="sign-box">
+  <div class="icon">
+     <i class="fa fa-user"></i>
+        <h1>حساب جديد</h1>
    </div>
- </body>
-    </html>
+        <form>
+            <div class="input-container">
+                <input type="text" name="Username" required placeholder="اسم المستخدم">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="input-container">
+                <input type="text" name="email" required placeholder="الايميل او رقم الهاتف">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="input-container">
+            <input type="password" name="password"
+               required
+               placeholder="كلمة السر">
+                <i class="fa fa-lock"></i>
+            </div>
+            <div class="input-container">
+            <input type="password" name="confirm_password"
+                required placeholder="تأكيد كلمة السر">
+                <i class="fa fa-lock"></i>
+            </div>
+            <button type="submit">تسجيل</button><br><br>
+            لديك حساب؟<strong><a href="index.html">تسجيل دخول</a></strong><br>
+            <div class="extra-links">
+        <a href="tel:+966XXXXXXXXX">📞 اتصل بنا</a> |
+        <a href="https://goo.gl/maps/xxx">📍 موقعنا</a>
+        </div>
+        </form>
+    </div>
+</body>
+              </html>
