@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* إعدادات أساسية */
+   /* إعدادات أساسية */
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
@@ -17,8 +17,7 @@
       align-items: center;
       height: 100vh;
     }
-
-    /* صندوق تسجيل الدخول */
+  /* صندوق تسجيل الدخول */
     .login-box {
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(7px);
@@ -26,39 +25,39 @@
       box-shadow: 0 4px 30px rgba(0,0,0,0.3);
       padding: 40px 30px;
       width: 350px;
-      height: 510px;
+      height: auto;
       text-align: center;
       color: #000;
       animation: slideUp 0.9s ease-out;
     }
-
-    /* حركة الصعود */
+    
+  /* حركة الصعود */
     @keyframes slideUp {
       from { transform: translateY(80px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
     
-    /* الشعار */
+  /* الشعار */
     .login-box img {
       margin-bottom: 15px;
       animation: pulse 2s infinite ease-in-out;
     }
     
-    /* حركة الشعار */
+  /* حركة الشعار */
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2 ); }
+      50% { transform: scale(1.2); }
     }
-
-    /* العنوان */
+    
+  /* العنوان */
     .login-box h1 {
       margin-bottom: 25px;
       color: #108700;
       font-size: 26px;
       letter-spacing: 1px;
     }
-
-    /* الحقول */
+    
+  /* الحقول */
     .input-container {
       position: relative;
       margin-bottom: 20px;
@@ -98,8 +97,8 @@
     .input-container input:focus + i {
       color: #FF4545B8;
     }
-
-    /* خيارات */
+    
+  /* الخيارات */
     .options {
       display: flex;
       justify-content: space-between;
@@ -108,9 +107,7 @@
       margin-bottom: 20px;
     }
 
-    .options label {
-      cursor: pointer;
-    }
+    .options label { cursor: pointer; }
     
   /* button-a Effect */
     .login-box button {
@@ -127,10 +124,14 @@
       position: relative;
       overflow: hidden;
     }
-        .login-box a {
+
+    .login-box a {
       color: #108700;
       text-decoration: none;
       transition: 0.3s;
+    }
+    .login-box a:active{
+      font-size: 110%;
     }
 
     .login-box a:hover {
@@ -140,8 +141,11 @@
     .login-box button:hover {
       background: linear-gradient(45deg, #81c784, #388e3c);
     }
-
-    /* Ripple Effect */
+    
+  .login-box button:active {
+    font-size: scale(0.2);
+    
+  }
     .login-box button:active::after {
       content: "";
       position: absolute;
@@ -157,6 +161,92 @@
       from { width: 5px; height: 5px; opacity: 1; }
       to { width: 300px; height: 300px; opacity: 0; }
     }
+    
+ /* النص الفاصل */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #555; /* لون النص */
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid #222 ;/* لون الخط */
+}
+
+.divider:not(:empty)::before {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+ /* أزرار الفيس و قوقل وابل */
+    .social-login {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #fff;
+      cursor: pointer;
+      animation: softPulse 2s infinite;
+      transition: transform 0.3s;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .social-btn:hover {
+      transform: scale(1.15);
+    }
+
+    @keyframes softPulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .facebook { background: #3b5998; }
+    .google { background: #db4437; }
+    .apple { background: #000; }
+
+    /* Tooltip */
+    .social-btn::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .social-btn:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
   </style>
 </head>
@@ -165,6 +255,7 @@
     <img src="Snake.png" alt="pharmacy" width="80" height="80">
     <h1>🌿 Al-Manara Pharmacy</h1>
     <form>
+      <!--الحقول و الايقونات-->
       <div class="input-container">
         <input type="text" placeholder="أسم المستخدم أو الايميل" required>
         <i class="fa-solid fa-user"></i>
@@ -174,16 +265,31 @@
         <input type="password" placeholder="كلمة السر" required>
         <i class="fa-solid fa-lock"></i>
       </div>
-
+    <!--تذكرني و نسيت كلمة السر-->
       <div class="options">
         <label><input type="checkbox"> تذكرني</label>
         <a href="#">نسيت كلمة السر؟</a>
       </div>
-
+    <!-- ازرار تسجيل الدخول-->
       <button type="submit">تسجيل دخول</button><br><br>
-      <button type="button" onclick="window.location.href='new-account.html'">إنشاء حساب جديد
-      </button>
+      <button type="button" onclick="window.location.href='new-account.html'">إنشاء حساب جديد</button>
     </form>
-   </div>
- </body>
-    </html>
+
+    <!-- النص الفاصل -->
+    <div class="divider">أو سجّل الدخول باستخدام</div>
+
+    <!-- أزرار الفيس، قوقل، أبل -->
+    <div class="social-login">
+      <div class="social-btn facebook" data-tooltip="تسجيل عبر فيسبوك">
+        <i class="fa-brands fa-facebook-f"></i>
+      </div>
+      <div class="social-btn google" data-tooltip="تسجيل عبر جوجل">
+        <i class="fa-brands fa-google"></i>
+      </div>
+      <div class="social-btn apple" data-tooltip="تسجيل عبر أبل">
+        <i class="fa-brands fa-apple"></i>
+      </div>
+    </div>
+  </div>
+</body>
+          </html>
